@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Solver - AI-drevet Mattløser</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🧮 Math Solver</h1>
+                <p class="tagline">AI-drevet løsning av matteoppgaver med forklaringer</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-card">
+                    <h2>Skriv inn din matteoppgave</h2>
+                    
+                    <div class="form-group">
+                        <label for="problem">Oppgave:</label>
+                        <textarea 
+                            id="problem" 
+                            class="textarea" 
+                            placeholder="Eksempel: Finn den deriverte av x^3 + 2x&#10;eller: Løs differensialligningen dy/dx = 2x"
+                            rows="4"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="context">Kontekst (valgfritt):</label>
+                        <textarea 
+                            id="context" 
+                            class="textarea" 
+                            placeholder="Legg til hints, forutsetninger, eller grensebetingelser"
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="solve-btn" class="btn btn-primary">
+                            <span class="btn-icon">⚡</span>
+                            Løs oppgaven
+                        </button>
+                        <button id="clear-btn" class="btn btn-secondary">Tøm</button>
+                    </div>
+
+                    <div id="error-message" class="error-message" style="display: none;"></div>
+                    <div id="loading" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Løser oppgaven...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solution Section -->
+            <section id="solution-section" class="solution-section" style="display: none;">
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h2>Løsning</h2>
+                        <button id="close-solution" class="btn-close">✕</button>
+                    </div>
+
+                    <!-- Problem Type -->
+                    <div class="info-box" id="problem-type-box" style="display: none;">
+                        <strong>Oppgavetype:</strong>
+                        <span id="problem-type"></span>
+                    </div>
+
+                    <!-- Steps -->
+                    <div id="steps-container" class="steps-container"></div>
+
+                    <!-- Final Answer -->
+                    <div id="answer-box" class="answer-box" style="display: none;">
+                        <h3>Sluttresultat</h3>
+                        <div id="final-answer" class="final-answer"></div>
+                    </div>
+
+                    <!-- Formulas Used -->
+                    <div id="formulas-box" class="formulas-box" style="display: none;">
+                        <h3>Formler brukt</h3>
+                        <ul id="formulas-list" class="formulas-list"></ul>
+                    </div>
+
+                    <!-- Validation -->
+                    <div id="validation-box" class="validation-box" style="display: none;">
+                        <h3>Validering</h3>
+                        <div id="validation-result"></div>
+                    </div>
+
+                    <!-- Note -->
+                    <div id="note-box" class="note-box" style="display: none;">
+                        <p id="note-text"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formula Browser -->
+            <section class="formula-section">
+                <div class="formula-card">
+                    <h2>Formelsamling</h2>
+                    
+                    <div class="formula-filters">
+                        <select id="category-select" class="select">
+                            <option value="">Alle kategorier</option>
+                            <option value="calculus">Calculus</option>
+                            <option value="linear_algebra">Lineær Algebra</option>
+                            <option value="differential_equations">Differensialligninger</option>
+                            <option value="complex_numbers">Komplekse Tall</option>
+                        </select>
+
+                        <select id="topic-select" class="select">
+                            <option value="">Alle emner</option>
+                        </select>
+
+                        <button id="load-formulas-btn" class="btn btn-secondary">Last inn formler</button>
+                    </div>
+
+                    <div id="formulas-display" class="formulas-display"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Math Solver v0.1.0 | Basert på SymPy, OpenAI GPT-4 og Tekniske Tabeller</p>
+            <p>✓ Symbolsk løsning | ✓ Numerisk validering | ✓ Detaljerte forklaringer</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/solver.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
